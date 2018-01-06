@@ -17,3 +17,8 @@ public class MainMenu {
     private JButton battleshipSize, cruiserSize, destroyerSize, submarineSize;
     private JButton battleshipCount, cruiserCount, destroyerCount, submarineCount;
     private JLabel errorMessage;
+    private JLabel errorMessage;
+    private volatile boolean isImageVisible;
+    private static final int MAX_SHIP_SIZE = 8;
+    private static final int MAX_SHIP_COUNT = 5;
+	
