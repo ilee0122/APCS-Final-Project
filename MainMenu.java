@@ -298,3 +298,9 @@ public class MainMenu {
 		window.getContentPane().repaint();
 	}
 
+    public boolean isImageVisible(){
+		return isImageVisible;
+	}
+	
+}
+
