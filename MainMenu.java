@@ -21,4 +21,11 @@ public class MainMenu {
     private volatile boolean isImageVisible;
     private static final int MAX_SHIP_SIZE = 8;
     private static final int MAX_SHIP_COUNT = 5;
+
+    public MainMenu(JFrame theWindow){
+		window = theWindow;
+		backgroundImageIcon = new ImageIcon("Title.png");
+		bkgImageContainer = new JLabel(backgroundImageIcon);
+		isImageVisible = true;
+    }
 	
