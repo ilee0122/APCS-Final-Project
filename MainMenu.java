@@ -51,4 +51,11 @@ public class MainMenu {
 		}
 		return true;
     }
+
+    public void loadTitleScreen() {
+		bkgImageContainer.setSize(window.getContentPane().getWidth(),
+				window.getContentPane().getHeight()/2);
+		bkgImageContainer.setLocation(0, 0); 
+		bkgImageContainer.setVisible(true);
+		
 	
