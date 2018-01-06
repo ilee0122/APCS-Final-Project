@@ -28,4 +28,10 @@ public class MainMenu {
 		bkgImageContainer = new JLabel(backgroundImageIcon);
 		isImageVisible = true;
     }
+
+    public boolean canShipsFitOnBoard(){
+		int totalShipSize = (GameLogic.battleshipCount * GameLogic.battleshipSize) + 
+				(GameLogic.cruiserCount * GameLogic.cruiserSize) +
+				(GameLogic.destroyerCount * GameLogic.destroyerSize) + 
+				(GameLogic.submarineCount * GameLogic.submarineSize);
 	
