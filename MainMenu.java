@@ -164,4 +164,22 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-	
+
+		cruiserCount = new JButton("Number of Cruisers: " + GameLogic.cruiserCount);
+		cruiserCount.setSize(200, 50); 
+		cruiserCount.setLocation(window.getContentPane().getWidth() - cruiserCount.getWidth() - 100, 
+				bkgImageContainer.getHeight() + battleshipCount.getHeight() + 50);
+		cruiserCount.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (GameLogic.cruiserCount  < MAX_SHIP_COUNT){
+					GameLogic.cruiserCount += 1;
+				}else{
+					GameLogic.cruiserCount = 1;
+				}
+				cruiserCount.setText("Number of Cruisers: " + GameLogic.cruiserCount);
+				boolean shipsFit = canShipsFitOnBoard();
+				startGame.setEnabled(shipsFit);
+				errorMessage.setVisible(!shipsFit);
+			}	
+		});
