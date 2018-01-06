@@ -223,3 +223,78 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
+
+		submarineSize = new JButton("Length of Submarine: " + GameLogic.submarineSize);
+		submarineSize.setSize(200, 50); 
+		submarineSize.setLocation(window.getContentPane().getWidth() - submarineSize.getWidth() - 300, 
+				bkgImageContainer.getHeight() + 
+				battleshipSize.getHeight() + 
+				cruiserSize.getHeight() + 
+				destroyerSize.getHeight() + 50);
+		submarineSize.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (GameLogic.submarineSize < MAX_SHIP_SIZE){
+					GameLogic.submarineSize += 1;
+				}else{
+					GameLogic.submarineSize = 1;
+				}
+				submarineSize.setText("Length of Submarine: " + GameLogic.submarineSize);
+				boolean shipsFit = canShipsFitOnBoard();
+				startGame.setEnabled(shipsFit);
+				errorMessage.setVisible(!shipsFit);
+			}	
+		});
+
+		submarineCount = new JButton("Number of Submarines: " + GameLogic.submarineCount);
+		submarineCount.setSize(200, 50); 
+		submarineCount.setLocation(window.getContentPane().getWidth() - submarineCount.getWidth() - 100, 
+				bkgImageContainer.getHeight() +
+				battleshipCount.getHeight() + 
+				cruiserCount.getHeight() + 
+				destroyerCount.getHeight() + 50);
+		submarineCount.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (GameLogic.submarineCount  < MAX_SHIP_COUNT){
+					GameLogic.submarineCount += 1;
+				}else{
+					GameLogic.submarineCount = 1;
+				}
+				submarineCount.setText("Number of Submarines: " + GameLogic.submarineCount);
+				boolean shipsFit = canShipsFitOnBoard();
+				startGame.setEnabled(shipsFit);
+				errorMessage.setVisible(!shipsFit);
+			}	
+		});
+
+		startGame.setVisible(true);
+		gridSizeBtn.setVisible(true);
+		battleshipSize.setVisible(true);
+		cruiserSize.setVisible(true);
+		destroyerSize.setVisible(true);
+		submarineSize.setVisible(true);
+		battleshipCount.setVisible(true);
+		cruiserCount.setVisible(true);
+		destroyerCount.setVisible(true);
+		submarineCount.setVisible(true);
+		
+		window.getContentPane().add(errorMessage);
+		window.getContentPane().add(startGame);
+		window.getContentPane().add(bkgImageContainer);
+		window.getContentPane().add(gridSizeBtn);
+		window.getContentPane().add(battleshipSize);
+		window.getContentPane().add(cruiserSize);
+		window.getContentPane().add(destroyerSize);
+		window.getContentPane().add(submarineSize);
+		window.getContentPane().add(battleshipCount);
+		window.getContentPane().add(cruiserCount);
+		window.getContentPane().add(destroyerCount);
+		window.getContentPane().add(submarineCount);
+		
+		window.getContentPane().setBackground(Color.BLACK);
+		window.setVisible(true);
+		window.getContentPane().revalidate();
+		window.getContentPane().repaint();
+	}
+
