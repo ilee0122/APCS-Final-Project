@@ -126,4 +126,23 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
+
+		battleshipCount = new JButton("Number of Battleships: " + GameLogic.battleshipCount);
+		battleshipCount.setSize(200, 50); 
+		battleshipCount.setLocation(window.getContentPane().getWidth() - battleshipCount.getWidth() - 100, 
+				bkgImageContainer.getHeight() + 50);
+		battleshipCount.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (GameLogic.battleshipCount  < MAX_SHIP_COUNT){
+					GameLogic.battleshipCount += 1;
+				}else{
+					GameLogic.battleshipCount = 1;
+				}
+				battleshipCount.setText("Number of Battleships: " + GameLogic.battleshipCount);
+				boolean shipsFit = canShipsFitOnBoard();
+				startGame.setEnabled(shipsFit);
+				errorMessage.setVisible(!shipsFit);
+			}	
+		});
 	
