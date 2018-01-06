@@ -107,4 +107,23 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
+
+		battleshipSize = new JButton("Length of Battleship: " + GameLogic.battleshipSize);
+		battleshipSize.setSize(200, 50); 
+		battleshipSize.setLocation(window.getContentPane().getWidth() - battleshipSize.getWidth() - 300, 
+				bkgImageContainer.getHeight() + 50);
+		battleshipSize.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (GameLogic.battleshipSize < MAX_SHIP_SIZE){
+					GameLogic.battleshipSize += 1;
+				}else{
+					GameLogic.battleshipSize = 1;
+				}
+				battleshipSize.setText("Length of Battleship: " + GameLogic.battleshipSize);
+				boolean shipsFit = canShipsFitOnBoard();
+				startGame.setEnabled(shipsFit);
+				errorMessage.setVisible(!shipsFit);
+			}	
+		});
 	
