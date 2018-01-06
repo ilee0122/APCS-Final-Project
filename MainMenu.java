@@ -34,4 +34,21 @@ public class MainMenu {
 				(GameLogic.cruiserCount * GameLogic.cruiserSize) +
 				(GameLogic.destroyerCount * GameLogic.destroyerSize) + 
 				(GameLogic.submarineCount * GameLogic.submarineSize);
+		if (totalShipSize > GameLogic.boardSize*GameLogic.boardSize){
+			return false;
+		}
+		if (GameLogic.battleshipSize > GameLogic.boardSize){
+			return false;
+		}
+		if (GameLogic.cruiserSize > GameLogic.boardSize){
+			return false;
+		}
+		if (GameLogic.destroyerSize > GameLogic.boardSize){
+			return false;
+		}
+		if (GameLogic.submarineSize > GameLogic.boardSize){
+			return false;
+		}
+		return true;
+    }
 	
