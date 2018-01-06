@@ -89,4 +89,22 @@ public class MainMenu {
 				isImageVisible = false;
 			}	
 		});
+
+		gridSizeBtn = new JButton("Grid Width: " + GameLogic.boardSize);
+		gridSizeBtn.setSize(200, 100); 
+		gridSizeBtn.setLocation(150, bkgImageContainer.getHeight() + startGame.getHeight() + 50);
+		gridSizeBtn.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				if (GameLogic.boardSize < 18){
+					GameLogic.boardSize += 2;
+				}else{
+					GameLogic.boardSize = 6;
+				}
+				gridSizeBtn.setText("Grid Width: " + GameLogic.boardSize);
+				boolean shipsFit = canShipsFitOnBoard();
+				startGame.setEnabled(shipsFit);
+				errorMessage.setVisible(!shipsFit);
+			}	
+		});
 	
