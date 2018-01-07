@@ -492,4 +492,23 @@ public class GridCreator extends JPanel {
     // return that the rotation was a success
     return true;
 }
+
+
+/*
+ * Returns the grid array
+ */
+public Object[][] getGridArray() {
+    return gridArray;
+}
+
+/*
+ * Returns if setup is over
+ */
+public boolean isSetupOver() {
+    return setupOver;
+}
+
+public JButton getButton() {
+    return endSetup;
+}
 }
