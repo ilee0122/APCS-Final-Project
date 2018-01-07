@@ -45,4 +45,29 @@ public class GridCreator extends JPanel {
     public GridCreator(Ship[] shipArray, int gridSize, JFrame app) {
 	this(shipArray, gridSize, "gridLabels.png", app);
     }
+
+    public GridCreator(Ship[] shipArray, int gridSize, String path, JFrame app) {
+	setLayout(null);
+	setBackground(Color.white);
+	setLocation(0,0);
+	window = app;
+
+	Object[][] grid = new Object[gridSize][gridSize];
+	for (int i = 0; i < grid.length; i++) {
+	    for (int j = 0; j < grid[i].length; j++) {
+		grid[i][j] = 1;
+	    }
+	}
+
+	gridArray = grid;
+	this.shipArray = shipArray;
+	panelArray = new JPanel[shipArray.length];
+
+	try {
+	    gridImage = ImageIO.read(new File(path));
+	} catch (IOException e) {
+	    System.out.println("Failed to load image");
+	}
+
+    }
 }
