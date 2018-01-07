@@ -237,4 +237,259 @@ public class GridCreator extends JPanel {
     }
 
 
+    /*
+     * Gets called when right click is pressed on a ship panel. Attempts to
+     * rotate the panel
+     */
+    private void rightClick(int shipNum, int x, int y) {
+	// isVertical is set based on the layout of the panel (X or y axis)
+	boolean isVertical = false;
+	if (((BoxLayout) panelArray[shipNum].getLayout()).getAxis() == BoxLayout.Y_AXIS) {
+	    isVertical = true;
+	}
+	// calls the remove method to remove the ship (not the panel)
+	removeShipFromGridArray(shipArray[shipNum], isVertical);
+	// attempts to rotate the panel.
+	if (rotatePanel(panelArray[shipNum]) && !currentlyPlacingShip) {
+	    // if it works call the add method to add the ship pieces in the
+	    // new orientation
+	    addShipToGridArray(shipArray[shipNum], new Point(x, y), !isVertical);
+	} else if (!currentlyPlacingShip) {
+	    panelArray[shipNum].setLocation(shipArray[shipNum].getStartingOffGridPosition());
+	    rotatePanel(panelArray[shipNum]);
+	}
+
+	showFinishButton();
+    }
+
+    /*
+     * Gets called when left mouse is pressed on a ship panel
+     */
+    private void leftClick(int shipNum, int x, int y) {
+	// if the panel has an X_AXIS box layout
+	if ((((BoxLayout) panelArray[shipNum].getLayout()).getAxis() == BoxLayout.X_AXIS)) {
+	    // checks if the panel is on the grid
+	    if (x < gridArray.length - panelArray[shipNum].getWidth() / TILE_SIZE + 1 && x >= 0) {
+		if (y < gridArray[0].length - panelArray[shipNum].getHeight() / TILE_SIZE + 1 && y >= 0) {
+		    // calls the method to place a ship panel on the proper
+		    // place on the grid image
+		    placeShipPanelOnGrid(x, y, shipNum, false);
+		} else {
+		    // sets the location back to its starting position
+		    panelArray[shipNum].setLocation(shipArray[shipNum].getStartingOffGridPosition());
+		    // removes the panel from the array
+		    removeShipFromGridArray(shipArray[shipNum], false);
+		}
+	    } else {
+		// sets the location back to the starting position
+		panelArray[shipNum].setLocation(shipArray[shipNum].getStartingOffGridPosition());
+		// removes the panel from the array
+		removeShipFromGridArray(shipArray[shipNum], false);
+	    }
+	} else {
+	    // checks if the panel is on the grid
+	    if (x < gridArray.length - panelArray[shipNum].getWidth() / TILE_SIZE + 1 && x >= 0) {
+		if (y < gridArray[0].length - panelArray[shipNum].getHeight() / TILE_SIZE + 1 && y >= 0) {
+		    // calls the method to place a ship panel on the proper
+		    // place on the grid image
+		    placeShipPanelOnGrid(x, y, shipNum, true);
+		} else {
+		    // rotates the panel so it is along the x axis
+		    rotatePanel(panelArray[shipNum]);
+		    // sets the location back to the starting position
+		    panelArray[shipNum].setLocation(shipArray[shipNum].getStartingOffGridPosition());
+		    // removes the panel from the array
+		    removeShipFromGridArray(shipArray[shipNum], true);
+		}
+	    } else {
+		// rotates the panel so it is along the x axis
+		rotatePanel(panelArray[shipNum]);
+		// sets the location back to the starting position
+		panelArray[shipNum].setLocation(shipArray[shipNum].getStartingOffGridPosition());
+		// removes the panel from the array
+		removeShipFromGridArray(shipArray[shipNum], true);
+	    }
+	}
+
+	showFinishButton();
+    }
+
+    /*
+     * Method for placing a ship panel on the grid image
+     */
+    private void placeShipPanelOnGrid(int x, int y, int shipNum, boolean isVertical) {
+	// sets the location
+	panelArray[shipNum].setLocation(X_ORIGIN + x + (((TILE_SIZE + BORDER_SIZE) * x) + BORDER_SIZE / 2),
+					Y_ORIGIN + y + ((TILE_SIZE + BORDER_SIZE) * y) + BORDER_SIZE / 2);
+	// checks for an intersection with another panel
+	if (isIntersection(panelArray[shipNum])) {
+	    // if it is vertical
+	    if (isVertical) {
+		// rotate the ship panel
+		rotatePanel(panelArray[shipNum]);
+	    }
+	    // remove the ship from the grid array
+	    removeShipFromGridArray(shipArray[shipNum], false);
+	    // sets the panel location to its original location
+	    panelArray[shipNum].setLocation(shipArray[shipNum].getStartingOffGridPosition());
+
+	    // if there is no intersection
+	} else {
+	    removeShipFromGridArray(shipArray[shipNum], isVertical);
+	    addShipToGridArray(shipArray[shipNum], new Point(x, y), isVertical);
+
+	}
+    }
+
+    /*
+     * Checks if the show finish button should be added, and if it should be add
+     * it
+     */
+    private void showFinishButton() {
+	boolean showButton = true;
+	if (!currentlyPlacingShip) {
+	    for (int i = 0; i < shipArray.length; i++) {
+		if (shipArray[i].getStartingOffGridPosition().equals(panelArray[i].getLocation())) {
+		    showButton = false;
+		}
+	    }
+	    endSetup.setVisible(showButton);
+	}
+    }
+
+    /*
+     * Checks if a panel intersects another panel.
+     */
+    private boolean isIntersection(JPanel p) {
+	// loops through the panel array
+	for (int i = 0; i < panelArray.length; i++) {
+	    // checks if p intersects with a panel in the array other than
+	    // itself
+	    if (p.getBounds().intersects(panelArray[i].getBounds()) && !p.equals(panelArray[i])) {
+		return true;
+	    }
+	}
+	return false;
+    }
+
+    /*
+     * Removes ships from the grid array
+     */
+    private void removeShipFromGridArray(Ship ship, boolean isVertical) {
+	// loops through the grid array
+	for (int i = 0; i < gridArray.length; i++) {
+	    for (int j = 0; j < gridArray[i].length; j++) {
+		for (int k = 0; k < ship.getShipPieces().length; k++) {
+		    if (gridArray[j][i] == (ShipPiece) ship.getShipPieces()[k]) {
+			gridArray[j][i] = 1;
+		    }
+		}
+	    }
+	}
+    }
+
+    /*
+     * Add ship to grid array
+     */
+    private void addShipToGridArray(Ship ship, Point location, boolean isVertical) {
+
+	// if the location is a valid point in the array
+	if (location.getX() < gridArray.length && location.getX() >= 0 && location.getY() < gridArray.length
+	    && location.getY() >= 0) {
+	    // loop through the ship pieces in the ship
+	    for (int i = 0; i < ship.getShipPieces().length; i++) {
+		// if the ship is vertical
+		if (isVertical) {
+		    // add a ship piece at the point but with i added to the y
+		    // coordinate
+		    gridArray[(int) location.getX()][(int) location.getY() + i] = ship.getShipPieces()[i];
+		} else {
+		    // add a ship piece at the point but with i added to the x
+		    // coordinate
+		    gridArray[(int) location.getX() + i][(int) location.getY()] = ship.getShipPieces()[i];
+		}
+	    }
+	}
+    }
+
+    /*
+     * Rotates a ship panel
+     */
+    private boolean rotatePanel(JPanel panel) {
+	// if the panel has an x axis box layout
+	if (((BoxLayout) panel.getLayout()).getAxis() == BoxLayout.X_AXIS) {
+	    if (panel.getX() > X_ORIGIN + ((TILE_SIZE + BORDER_SIZE) * gridArray.length) && !currentlyPlacingShip) {
+		return false;
+	    }
+	    // set the layout to y axis
+	    panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+	    // swap the width and height
+	    int temp = panel.getWidth();
+	    int temp2 = panel.getHeight();
+	    panel.setSize(temp2, temp);
+	    // replaces all x axis padding with y axis padding between the ship
+	    // piece pictures
+	    for (int i = 0; i < panel.getComponentCount(); i++) {
+		if (!panel.getComponent(i).getClass().toString().equals("JPanel")) {
+		    panel.add(Box.createRigidArea(new Dimension(0, BORDER_SIZE + 2)), i);
+		    panel.remove(++i);
+		}
+	    }
+	    panel.add(Box.createRigidArea(new Dimension(0, 0)), 0);
+	    panel.remove(1);
+	    // revalidates the panel, forcing the layout to update
+	    panel.validate();
+
+	    // sets the panel location
+	    panel.setLocation(panel.getX(), panel.getY());
+
+	    // gets the length of the ship
+	    int counter = 0;
+	    while (Y_ORIGIN + ((TILE_SIZE + BORDER_SIZE) * counter) < panel.getY() + panel.getWidth()) {
+		counter++;
+	    }
+	    counter--;
+
+	    // if the panel is intersecting another ship panel or is partially
+	    // off the grid
+	    if (!(counter <= gridArray[0].length - panel.getHeight() / TILE_SIZE && counter >= 0)
+		|| isIntersection(panel)) {
+		// return that the rotation was a failure
+		return false;
+	    }
+	    // if the panel has a y axis box layout
+	} else if (((BoxLayout) panel.getLayout()).getAxis() == BoxLayout.Y_AXIS) {
+	    // set the layout to y axis
+	    panel.setLayout(new BoxLayout(panel, BoxLayout.X_AXIS));
+	    // swap the width and height
+	    int temp = panel.getWidth();
+	    int temp2 = panel.getHeight();
+	    panel.setSize(temp2, temp);
+	    // replaces all y axis padding with x axis padding between the ship
+	    // piece pictures
+	    for (int i = 0; i < panel.getComponentCount(); i++) {
+		if (!panel.getComponent(i).getClass().toString().equals("JPanel")) {
+		    panel.add(Box.createRigidArea(new Dimension(BORDER_SIZE + 2, 0)), i);
+		    panel.remove(++i);
+		}
+	    }
+	    panel.add(Box.createRigidArea(new Dimension(0, 0)), 0);
+	    panel.remove(1);
+	    // revalidates the panel, forcing the layout to update
+	    panel.validate();
+
+	    // sets the panel location
+	    panel.setLocation(panel.getX(), panel.getY());
+
+	    // gets the length of the ship
+	    int counter = 0;
+	    while (X_ORIGIN + ((TILE_SIZE + BORDER_SIZE) * counum].getStartingOffGridPosition());
+	    // return that the rotation was a failure
+	    return false;
+	}
+
+    }
+    // return that the rotation was a success
+    return true;
+}
 }
