@@ -31,4 +31,18 @@ public class GridCreator extends JPanel {
     private JButton endSetup, randomizeShipsBtn;
     private JFrame window;
 
+    private volatile boolean setupOver = false;
+    public static final int X_ORIGIN = 54;
+    public static final int Y_ORIGIN = 56;
+    public static final int TILE_SIZE = 47;
+    public static final int BORDER_SIZE = 5;
+    public static boolean currentlyPlacingShip = false;
+
+    public GridCreator(Ship[] shipArray, JFrame app) {
+	this(shipArray, 10, app);
+    }
+
+    public GridCreator(Ship[] shipArray, int gridSize, JFrame app) {
+	this(shipArray, gridSize, "gridLabels.png", app);
+    }
 }
