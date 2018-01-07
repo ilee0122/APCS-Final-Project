@@ -21,3 +21,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
+
+public class GridCreator extends JPanel {
+    private static final long serialVersionUID = 1L;
+    private BufferedImage gridImage = null;
+    private Object[][] gridArray;
+    private Ship[] shipArray;
+    private JPanel[] panelArray;
+    private JButton endSetup, randomizeShipsBtn;
+    private JFrame window;
+
+}
