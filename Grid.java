@@ -35,3 +35,24 @@ public class Grid extends JPanel implements MouseListener {
 	public Grid(Object[][] arr) {
 		this(arr, "gridLabels.png");
 	}
+
+    /*
+	 * constructor that takes an array and a file path.
+	 */
+	public Grid(Object[][] arr, String path) {
+		array = arr;
+		isTurn = true;
+		state = false;
+		// makes the background white and sets the size
+		setBackground(Color.white);
+		setPreferredSize(new Dimension((X_ORIGIN+ arr.length + 1 + ((TILE_SIZE+BORDER_SIZE)*array.length)), 
+				Y_ORIGIN+ arr.length + 1 + ((TILE_SIZE+BORDER_SIZE)*array.length)));
+		setSize(getPreferredSize());
+		setLocation(0,0);
+
+		try {
+			gridImage = ImageIO.read(new File(path));
+		} catch (IOException e) {
+			System.out.println("Failed to load image");
+		}
+	}
