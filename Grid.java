@@ -28,3 +28,10 @@ public class Grid extends JPanel implements MouseListener {
 	public Grid() {
 		this(new Object[10][10], "gridLabels.png");
 	}
+
+    /*
+	 * Constructor that takes an array
+	 */
+	public Grid(Object[][] arr) {
+		this(arr, "gridLabels.png");
+	}
