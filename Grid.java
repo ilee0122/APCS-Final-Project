@@ -22,3 +22,9 @@ public class Grid extends JPanel implements MouseListener {
 	private volatile boolean isTurn;
 	private boolean state;
 
+    /*
+	 * Default constructor. Uses an empty array
+	 */
+	public Grid() {
+		this(new Object[10][10], "gridLabels.png");
+	}
