@@ -170,4 +170,28 @@ public class Grid extends JPanel implements MouseListener {
 		isTurn = t;
 	}
 
+    /*
+	 * Returns the grid array
+	 */
+	public Object[][] getArray() {
+		return array;
+	}
+
+	/*
+	 * Sets the grid array to the parameter
+	 */
+	public void setArray(Object[][] arr) {
+		array = arr;
+	}
+	
+	public boolean getState(){
+		return state;
+	}
+	
+	public void setState(boolean s){
+		state = s;
+	}
+
+}
+
 
