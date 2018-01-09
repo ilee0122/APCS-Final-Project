@@ -23,6 +23,9 @@ public class GameLogic{
     public static int destroyerCount = 3;
     public static int submarineCount = 4;
 
+    private JFrame frame;
 
+    private boolean gameRunning;
 
+    public void setUpWindow() {}
 }
