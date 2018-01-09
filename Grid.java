@@ -88,3 +88,56 @@ public class Grid extends JPanel implements MouseListener {
 
 	}
 
+    @Override
+	public void mouseReleased(MouseEvent e) {
+		// left click
+		if (isTurn && e.getButton() == MouseEvent.BUTTON1) {
+
+			// turns the x coordinate of the mouse into an x coordinate in the
+			// grid array using MATH
+			int value = e.getX();
+			int counter1 = 0;
+			while (X_ORIGIN + ((TILE_SIZE + BORDER_SIZE) * counter1) + BORDER_SIZE < value) {
+				counter1++;
+			}
+			counter1--;
+
+			// turns the y coordinate of the mouse into a y coordinate in the
+			// grid array using MATH
+			int value2 = e.getY() - (TILE_SIZE / 2);
+			int counter2 = 0;
+			while (Y_ORIGIN + ((TILE_SIZE + BORDER_SIZE) * counter2) + BORDER_SIZE < value2) {
+				counter2++;
+			}
+			counter2--;
+
+			// if (counter1,counter2) is a valid position in the array
+			if (counter1 < array.length && counter1 >= 0) {
+				if (counter2 < array[0].length && counter2 >= 0) {
+					// if the object at the coordinate is 1
+					if (array[counter1][counter2].equals((Object) 1)) {
+						// set the object at the coordinate to 0 (an empty
+						// space)
+						array[counter1][counter2] = 0;
+						repaint();
+						// end the turn
+						isTurn = false;
+						// if the object at the coordinate is a ShipPiece that
+						// is not destroyed
+					} else if ((array[counter1][counter2]).getClass().getName().equals("ShipPiece")
+							&& !((ShipPiece) array[counter1][counter2]).isDestroy()) {
+						// destroy the ship piece
+						((ShipPiece) array[counter1][counter2]).destroy();
+						repaint();
+						// end the turn
+						isTurn = false;
+					}
+					state = false;
+				}
+			}
+		}else if(!isTurn && e.getButton() == MouseEvent.BUTTON1){
+			state = true;
+		}
+	}
+
+
