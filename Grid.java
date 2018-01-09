@@ -156,4 +156,18 @@ public class Grid extends JPanel implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 	}
 
+    /*
+	 * Returns isTurn
+	 */
+	public boolean isTurn() {
+		return isTurn;
+	}
+
+	/*
+	 * Sets the turn to the parameter
+	 */
+	public void setTurn(boolean t) {
+		isTurn = t;
+	}
+
 
