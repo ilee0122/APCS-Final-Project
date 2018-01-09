@@ -42,10 +42,38 @@ public class GameLogic{
 	frame.setResizable(false);
 	frame.pack();
 	
-	//
+	startGame();
     }
 
     public void startGame(){
+	gameRunning = true;
+	
+	MainMenu startMenu = new MainMenu(frame);
+	startMenu.loadTitleScreen();
+	while(startMenu.isImageVisible()){}
+	
+	Ship[] p1Ships = initializeShipCreation(true);
+	Ship[] p2Ships = initializeShipCreation(false);
 
+	Grid grid = new Grid(chooseShipPositions(p1Ships));
+	SmallGrid small = new SmallGrid(chooseShipPositions(p2Ships));
+	small.setLocation(grid.getWidth()+10, grid.getY());
+	
+	//panel.setLayout(null);
+	
+	int windowWidth = small.getX() + small.getWidth() + 10;
+	frame.setPreferredSize(new Dimension(windowWidth, frame.getHeight())); 
+	frame.setSize(frame.getPreferredSize());
+	frame.pack();
+	
+	frame.getContentPane().add(grid); 
+	frame.getContentPane().add(small);
+
+       
+	frame.addMouseListener(grid);
+	
+	frame.setVisible(true);
+
+	gameLoop(p1Ships, p2Ships, grid, small);
     }
 }
