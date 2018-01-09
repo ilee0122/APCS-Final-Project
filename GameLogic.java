@@ -76,4 +76,24 @@ public class GameLogic{
 
 	gameLoop(p1Ships, p2Ships, grid, small);
     }
+
+    private Ship[] initializeShipCreation(boolean isPlayerOne) {}
+
+    private Ship[] createShips(int shipSize, int numOfShips, boolean isPlayerOne) {}
+
+    private Ship[] concatShipArray(Ship[] a, Ship[] b) {}
+
+    private Object[][] chooseShipPositions(Ship[] ships){}
+
+    private void betweenTurns(Grid grid, SmallGrid small){}
+
+    private void gameLoop(Ship[] p1Ships, Ship[] p2Ships, Grid grid, SmallGrid small){}
+
+
+
+
+
+
+
+
 }
