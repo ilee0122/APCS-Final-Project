@@ -56,3 +56,35 @@ public class Grid extends JPanel implements MouseListener {
 			System.out.println("Failed to load image");
 		}
 	}
+
+    @Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D g2 = (Graphics2D) g;
+		// draws the grid
+		g2.drawImage(gridImage, 0, 0, this);
+
+		// loops through all spots in the grid
+		for (int i = 0; i < array.length; i++) {
+			for (int j = 0; j < array[i].length; j++) {
+				// checks if there is a 1 or a ShipPiece that has not been
+				// destroyed
+				if (array[i][j].equals((Object) 1) || ((array[i][j]).getClass().getName().equals("ShipPiece")
+						&& !((ShipPiece) array[i][j]).isDestroy())) {
+					// covers the spot on the grid with a gray box
+					g2.setColor(Color.gray);
+					g2.fillRect(X_ORIGIN + i + 1 + ((TILE_SIZE + BORDER_SIZE) * i), Y_ORIGIN + j + 1 + ((TILE_SIZE + BORDER_SIZE) * j),
+							TILE_SIZE+(BORDER_SIZE/2)-1, TILE_SIZE+(BORDER_SIZE/2)-1);
+					// if there is a ship piece at the position that is
+					// destroyed
+				} else if ((array[i][j]).getClass().getName().equals("ShipPiece")) {
+					// draw the image associated with the ship piece
+					g2.drawImage(((ShipPiece) array[i][j]).getShipImage(),
+							X_ORIGIN + i + ((TILE_SIZE + BORDER_SIZE) * i) + BORDER_SIZE/2,
+							Y_ORIGIN + j + ((TILE_SIZE + BORDER_SIZE) * j) + BORDER_SIZE/2, this);
+				}
+			}
+		}
+
+	}
+
