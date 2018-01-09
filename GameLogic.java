@@ -27,5 +27,25 @@ public class GameLogic{
 
     private boolean gameRunning;
 
-    public void setUpWindow() {}
+    public void setUpWindow() {
+	frame = new JFrame();
+	
+	frame.getContentPane().setLayout(null);
+	frame.getContentPane().setBackground(Color.WHITE);
+	frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+	//set them equal
+	frame.setPreferredSize(new Dimension(900, 615));
+	frame.setMinimumSize(new Dimension(900, 615));
+
+	//no need to resize the GUI window
+	frame.setResizable(false);
+	frame.pack();
+	
+	//
+    }
+
+    public void startGame(){
+
+    }
 }
