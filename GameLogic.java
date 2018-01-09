@@ -66,10 +66,10 @@ public class GameLogic{
 	frame.setSize(frame.getPreferredSize());
 	frame.pack();
 	
-	frame.getContentPane().add(grid); 
+	frame.getContentPane().add(grid);  // adds the grids to the window
 	frame.getContentPane().add(small);
 
-       
+	//grid needs mouse listener to manually place the ships on the grid
 	frame.addMouseListener(grid);
 	
 	frame.setVisible(true);
