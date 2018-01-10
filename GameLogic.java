@@ -104,7 +104,16 @@ public class GameLogic{
 	return listOfShips;
     }
 
-    private Ship[] concatShipArray(Ship[] a, Ship[] b) {}
+    private Ship[] concatShipArray(Ship[] a, Ship[] b) {
+	int aLen = a.length;
+	int bLen = b.length;
+	Ship[] c = new Ship[aLen + bLen];
+
+	//use arraycopy  <- learn more
+	System.arraycopy(a, 0, c, 0, aLen);
+	System.arraycopy(b, 0, c, aLen, bLen);
+	return c;
+    }
 
     private Object[][] chooseShipPositions(Ship[] ships){}
 
