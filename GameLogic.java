@@ -147,7 +147,57 @@ public class GameLogic{
 	    });
     }
 
-    private void gameLoop(Ship[] p1Ships, Ship[] p2Ships, Grid grid, SmallGrid small){}
+    private void gameLoop(Ship[] p1Ships, Ship[] p2Ships, Grid grid, SmallGrid small){
+	betweenTurns(grid, small);
+	
+	while (gameRunning) {
+
+	    boolean p1AllShipsDead = true;
+
+	    for (int i = 0; i < p1Ships.length; i++) {
+		if (p1Ships[i].checkIfDead()) {
+		    for (int j = 0; j < p1Ships[i].getShipPieces().length; j++)
+			p1Ships[i].getShipPieces()[j].setShipImage("dead.png");
+		} else {
+		    p1AllShipsDead = false;
+		}
+	    }
+
+	    boolean p2AllShipsDead = true;
+
+	    grid.repaint();
+	    small.repaint();
+
+	    for (int i = 0; i < p2Ships.length; i++) {
+		if (p2Ships[i].checkIfDead()) {
+		    for (int j = 0; j < p2Ships[i].getShipPieces().length; j++)
+			p2Ships[i].getShipPieces()[j].setShipImage("dead.png");
+		} else {
+		    p2AllShipsDead = false;
+		}
+	    }
+
+	    // while(turnButton.isVisible()){}
+	    grid.repaint();
+	    small.repaint();
+
+	    if (p1AllShipsDead || p2AllShipsDead) {
+		gameRunning = false;
+		for (int i = 0; i < grid.getArray().length; i++) {
+		    for (int j = 0; j < grid.getArray()[i].length; j++) {
+			if ((grid.getArray()[i][j].equals((Object) 1))) {
+			    grid.getArray()[i][j] = (Object) 0;
+			}
+		    }
+		}
+		//grid.repaint();
+		//small.repaint();
+		//grid.setVisible(true); 
+		GameOverScreen gameOver = new GameOverScreen(frame, !p1AllShipsDead);
+		gameOver.loadEndScreen();
+	    }
+	}
+    }
 
 
 
