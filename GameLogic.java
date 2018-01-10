@@ -115,9 +115,37 @@ public class GameLogic{
 	return c;
     }
 
-    private Object[][] chooseShipPositions(Ship[] ships){}
+    private Object[][] chooseShipPositions(Ship[] ships){
+	GridCreator creator = new GridCreator(ships, boardSize, frame);
+	creator.setup();
+	frame.getContentPane().add(creator);
+	frame.getContentPane().repaint();
+	frame.setVisible(true);
+	while (!creator.isSetupOver()) {}
+	frame.getContentPane().removeAll();
+	frame.getContentPane().revalidate();
+	frame.getContentPane().repaint();
+	
+	return creator.getGridArray();
+    }
 
-    private void betweenTurns(Grid grid, SmallGrid small){}
+    private void betweenTurns(Grid grid, SmallGrid small){
+	frame.addMouseListener(new MouseAdapter() {
+		@Override
+		    public void mousePressed(MouseEvent e) {
+		    BetweenTurnsScreen betweenTurns = new BetweenTurnsScreen((JPanel) frame.getContentPane(), grid, small);
+		    final Object[][] grid1Temp = grid.getArray();
+		    final Object[][] grid2Temp = small.getArray();
+		    if (!grid.isTurn() && gameRunning){
+			grid.setVisible(false);
+			small.setVisible(false);
+			grid.setArray(grid2Temp);
+			small.setArray(grid1Temp); 
+			betweenTurns.loadTurnScreen();
+		    }
+		}
+	    });
+    }
 
     private void gameLoop(Ship[] p1Ships, Ship[] p2Ships, Grid grid, SmallGrid small){}
 
