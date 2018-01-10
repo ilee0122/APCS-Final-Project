@@ -90,7 +90,19 @@ public class GameLogic{
 	return ships;
     }
 
-    private Ship[] createShips(int shipSize, int numOfShips, boolean isPlayerOne) {}
+    private Ship[] createShips(int shipSize, int numOfShips, boolean isPlayerOne) {
+	Ship[] listOfShips = new Ship[numOfShips];
+	for (int i = 0; i < numOfShips; i++) {
+	    ShipPiece[] shipArray = new ShipPiece[shipSize];
+	    for (int j = 0; j < shipSize; j++) {
+		ShipPiece p = new ShipPiece(isPlayerOne);
+		shipArray[j] = p;
+	    }
+	    listOfShips[i] = new Ship(shipArray);
+	}
+
+	return listOfShips;
+    }
 
     private Ship[] concatShipArray(Ship[] a, Ship[] b) {}
 
