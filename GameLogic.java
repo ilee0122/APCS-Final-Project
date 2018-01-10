@@ -77,7 +77,18 @@ public class GameLogic{
 	gameLoop(p1Ships, p2Ships, grid, small);
     }
 
-    private Ship[] initializeShipCreation(boolean isPlayerOne) {}
+    private Ship[] initializeShipCreation(boolean isPlayerOne) {
+	Ship[] battleships = createShips(battleshipSize, battleshipCount, isPlayerOne);
+	Ship[] cruisers = createShips(cruiserSize, cruiserCount, isPlayerOne);
+	Ship[] destroyers = createShips(destroyerSize, destroyerCount, isPlayerOne);
+	Ship[] submarines = createShips(submarineSize, submarineCount, isPlayerOne);
+
+	Ship[] ships = concatShipArray(battleships, cruisers);
+	ships = concatShipArray(ships, destroyers);
+	ships = concatShipArray(ships, submarines);
+
+	return ships;
+    }
 
     private Ship[] createShips(int shipSize, int numOfShips, boolean isPlayerOne) {}
 
