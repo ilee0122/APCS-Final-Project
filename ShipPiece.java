@@ -28,3 +28,10 @@ public class ShipPiece {
 
 	}
 
+    /*
+	 * returns the ship piece's image
+	 */
+	public Image getShipImage() {
+		return shipPieceAlive;
+	}
+
