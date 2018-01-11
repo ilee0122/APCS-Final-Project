@@ -31,4 +31,13 @@ public class BetweenTurnsScreen implements MouseListener{
 	this.grid = grid;
 	this.small = small;
     }
+
+    public void loadTurnScreen() {
+
+    }
+
+    public boolean isImageVisible() {
+
+    }
+
 }
