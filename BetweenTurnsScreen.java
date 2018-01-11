@@ -8,7 +8,13 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class BetweenTurnsScreen implements MouseListener{
-
+   
+    private JPanel window;
+    private ImageIcon backgroundImageIcon;
+    private JLabel bkgImageContainer;
+    private volatile boolean isImageVisible;
+    private Grid grid;
+    private SmallGrid small;
 
 
 }
