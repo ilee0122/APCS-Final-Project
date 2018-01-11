@@ -53,4 +53,15 @@ public class BetweenTurnsScreen implements MouseListener{
 	small.setVisible(true);
     }
 
+    @Override
+	public void mouseClicked(MouseEvent arg0) {}
+
+    @Override
+	public void mouseEntered(MouseEvent arg0) {}
+
+    @Override
+	public void mouseExited(MouseEvent arg0) {}
+
+    @Override
+	public void mousePressed(MouseEvent arg0) {}
 }
