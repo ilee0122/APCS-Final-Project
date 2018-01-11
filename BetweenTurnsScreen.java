@@ -33,7 +33,10 @@ public class BetweenTurnsScreen implements MouseListener{
     }
 
     public void loadTurnScreen() {
-
+	window.add(bkgImageContainer);
+	bkgImageContainer.addMouseListener(this);
+	window.setVisible(true);
+	window.repaint();
     }
 
     public boolean isImageVisible() {
