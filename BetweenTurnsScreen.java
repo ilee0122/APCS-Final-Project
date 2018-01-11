@@ -40,7 +40,7 @@ public class BetweenTurnsScreen implements MouseListener{
     }
 
     public boolean isImageVisible() {
-
+	return isImageVisible;
     }
 
 }
