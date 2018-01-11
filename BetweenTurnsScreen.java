@@ -43,4 +43,14 @@ public class BetweenTurnsScreen implements MouseListener{
 	return isImageVisible;
     }
 
+    @Override
+	public void mouseReleased(MouseEvent arg0) {
+	window.remove(bkgImageContainer);
+	window.revalidate();
+	window.repaint();
+	grid.setTurn(true);
+	grid.setVisible(true);
+	small.setVisible(true);
+    }
+
 }
