@@ -20,3 +20,11 @@ public class ShipPiece {
 		shipIsDead = false;
 	}
 
+    /*
+	 * sets the image based on the file name
+	 */
+	public void setShipImage(String file) {
+		shipPieceAlive = new ImageIcon(file).getImage();
+
+	}
+
