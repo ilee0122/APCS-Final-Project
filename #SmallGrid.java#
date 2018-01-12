@@ -1,4 +1,4 @@
-import java.awt.Color;
+mport java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
@@ -72,7 +72,6 @@ public class SmallGrid extends JPanel {
 	 * Sets the array
 	 */
 	public void setArray(Object[][] array) {
-		this.array = array;
-	}
+		this.array = array;	}
 
 }
