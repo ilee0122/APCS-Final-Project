@@ -48,3 +48,12 @@ public class ShipPiece {
 		}
 	}
 
+    /*
+	 * Returns if the ship piece is destroyed
+	 */
+	public boolean isDestroy() {
+		return shipIsDead;
+	}
+
+}
+
