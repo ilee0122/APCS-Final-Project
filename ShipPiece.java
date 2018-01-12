@@ -35,3 +35,16 @@ public class ShipPiece {
 		return shipPieceAlive;
 	}
 
+    /*
+	 * Destroys the ship piece by setting shipIsDead to true and changing the
+	 * image to the damaged image for the player
+	 */
+	public void destroy() {
+		shipIsDead = true;
+		if (isPlayer1) {
+			setShipImage("Player1Hit.png");
+		} else {
+			setShipImage("Player2Hit.png");
+		}
+	}
+
