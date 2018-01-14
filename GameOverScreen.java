@@ -37,7 +37,11 @@ public class GameOverScreen implements MouseListener{
     }
 
     public void loadEndScreen() {
-    
+	window.add(bkgImageContainer); 
+	window.setComponentZOrder(bkgImageContainer, 0);
+	window.setVisible(true);
+	window.revalidate();
+	window.repaint();
     }
 
 
