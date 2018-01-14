@@ -49,4 +49,6 @@ public class GameOverScreen implements MouseListener{
 	System.exit(0);
     }
 
+    @Override
+	public void mouseClicked(MouseEvent e) {}
 }
