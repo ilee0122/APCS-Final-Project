@@ -1,3 +1,4 @@
+//imports
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -17,6 +18,8 @@ public class GameOverScreen implements MouseListener{
 
     public GameOverScreen(JFrame app, boolean playerOneWin){
 	window = (JPanel)app.getContentPane();
+	
+	//Use pngs
 	if (playerOneWin){
 	    backgroundImageIcon = new ImageIcon("P1Win.png");
 	}else{
@@ -33,6 +36,8 @@ public class GameOverScreen implements MouseListener{
 				  window.getHeight());
 	bkgImageContainer.setLocation(0, 0); 
 	bkgImageContainer.setBackground(new Color(0,0,0,0));
+	
+	//mouseListener
 	bkgImageContainer.addMouseListener(this);
     }
 
@@ -44,6 +49,8 @@ public class GameOverScreen implements MouseListener{
 	window.repaint();
     }
 
+
+    //Overrides
     @Override
 	public void mouseReleased(MouseEvent e) {
 	System.exit(0);
