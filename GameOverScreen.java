@@ -27,7 +27,13 @@ public class GameOverScreen implements MouseListener{
 							  window.getHeight(), BufferedImage.SCALE_FAST);
 	ImageIcon scaledBkgImageIcon = new ImageIcon(scaledBkgImage);
 
-
+	ImageIcon scaledBkgImageIcon = new ImageIcon(scaledBkgImage);
+	bkgImageContainer = new JLabel(scaledBkgImageIcon);
+	bkgImageContainer.setSize(window.getWidth(), 
+				  window.getHeight());
+	bkgImageContainer.setLocation(0, 0); 
+	bkgImageContainer.setBackground(new Color(0,0,0,0));
+	bkgImageContainer.addMouseListener(this);
     }
 
     public void loadEndScreen() {
