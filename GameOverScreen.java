@@ -22,6 +22,12 @@ public class GameOverScreen implements MouseListener{
 	}else{
 	    backgroundImageIcon = new ImageIcon("P2Win.png");
 	}
+	Image bkgImage = backgroundImageIcon.getImage();
+	Image scaledBkgImage = bkgImage.getScaledInstance(window.getWidth(),
+							  window.getHeight(), BufferedImage.SCALE_FAST);
+	ImageIcon scaledBkgImageIcon = new ImageIcon(scaledBkgImage);
+
+
     }
 
     public void loadEndScreen() {
