@@ -44,5 +44,9 @@ public class GameOverScreen implements MouseListener{
 	window.repaint();
     }
 
+    @Override
+	public void mouseReleased(MouseEvent e) {
+	System.exit(0);
+    }
 
 }
