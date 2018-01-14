@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 
 public class GameOverScreen implements MouseListener{
 
-
+    private JPanel window;
+    private ImageIcon backgroundImageIcon;
+    private JLabel bkgImageContainer;
 
 }
