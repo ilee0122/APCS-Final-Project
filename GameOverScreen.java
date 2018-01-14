@@ -16,7 +16,12 @@ public class GameOverScreen implements MouseListener{
     private JLabel bkgImageContainer;
 
     public GameOverScreen(JFrame app, boolean playerOneWin){
-
+	window = (JPanel)app.getContentPane();
+	if (playerOneWin){
+	    backgroundImageIcon = new ImageIcon("P1Win.png");
+	}else{
+	    backgroundImageIcon = new ImageIcon("P2Win.png");
+	}
     }
 
     public void loadEndScreen() {
