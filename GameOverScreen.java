@@ -15,4 +15,13 @@ public class GameOverScreen implements MouseListener{
     private ImageIcon backgroundImageIcon;
     private JLabel bkgImageContainer;
 
+    public GameOverScreen(JFrame app, boolean playerOneWin){
+
+    }
+
+    public void loadEndScreen() {
+    
+    }
+
+
 }
