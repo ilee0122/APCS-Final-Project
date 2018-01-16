@@ -19,7 +19,7 @@ public class Ship {
 		startingPosition = new Point(0,0);
 	}
 
-    /*
+	/*
 	 * If all the ship pieces are dead, it returns that the ship is dead
 	 */
 	public boolean checkIfDead() {

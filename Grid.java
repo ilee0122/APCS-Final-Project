@@ -22,21 +22,21 @@ public class Grid extends JPanel implements MouseListener {
 	private volatile boolean isTurn;
 	private boolean state;
 
-    /*
+	/*
 	 * Default constructor. Uses an empty array
 	 */
 	public Grid() {
 		this(new Object[10][10], "gridLabels.png");
 	}
 
-    /*
+	/*
 	 * Constructor that takes an array
 	 */
 	public Grid(Object[][] arr) {
 		this(arr, "gridLabels.png");
 	}
 
-    /*
+	/*
 	 * constructor that takes an array and a file path.
 	 */
 	public Grid(Object[][] arr, String path) {
@@ -57,7 +57,7 @@ public class Grid extends JPanel implements MouseListener {
 		}
 	}
 
-    @Override
+	@Override
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
@@ -88,7 +88,7 @@ public class Grid extends JPanel implements MouseListener {
 
 	}
 
-    @Override
+	@Override
 	public void mouseReleased(MouseEvent e) {
 		// left click
 		if (isTurn && e.getButton() == MouseEvent.BUTTON1) {
@@ -140,7 +140,7 @@ public class Grid extends JPanel implements MouseListener {
 		}
 	}
 
-    @Override
+	@Override
 	public void mouseClicked(MouseEvent e) {
 	}
 
@@ -156,7 +156,7 @@ public class Grid extends JPanel implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 	}
 
-    /*
+	/*
 	 * Returns isTurn
 	 */
 	public boolean isTurn() {
@@ -170,7 +170,7 @@ public class Grid extends JPanel implements MouseListener {
 		isTurn = t;
 	}
 
-    /*
+	/*
 	 * Returns the grid array
 	 */
 	public Object[][] getArray() {
@@ -193,5 +193,3 @@ public class Grid extends JPanel implements MouseListener {
 	}
 
 }
-
-

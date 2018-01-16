@@ -6,7 +6,7 @@ public class ShipPiece {
 	private boolean shipIsDead;
 	boolean isPlayer1;
 
-    /*
+	/*
 	 * Constructor that has a boolean to determine which player the ship piece
 	 * belongs to. false is player 2, true is player 1
 	 */
@@ -20,7 +20,7 @@ public class ShipPiece {
 		shipIsDead = false;
 	}
 
-    /*
+	/*
 	 * sets the image based on the file name
 	 */
 	public void setShipImage(String file) {
@@ -28,14 +28,14 @@ public class ShipPiece {
 
 	}
 
-    /*
+	/*
 	 * returns the ship piece's image
 	 */
 	public Image getShipImage() {
 		return shipPieceAlive;
 	}
 
-    /*
+	/*
 	 * Destroys the ship piece by setting shipIsDead to true and changing the
 	 * image to the damaged image for the player
 	 */
@@ -48,7 +48,7 @@ public class ShipPiece {
 		}
 	}
 
-    /*
+	/*
 	 * Returns if the ship piece is destroyed
 	 */
 	public boolean isDestroy() {
@@ -56,4 +56,3 @@ public class ShipPiece {
 	}
 
 }
-

@@ -9,27 +9,26 @@ import javax.swing.JLabel;
 
 public class MainMenu {
 	
-    private JFrame window;
-    private ImageIcon backgroundImageIcon;
-    private JLabel bkgImageContainer;
-    private JButton gridSizeBtn;
-    private JButton startGame;
-    private JButton battleshipSize, cruiserSize, destroyerSize, submarineSize;
-    private JButton battleshipCount, cruiserCount, destroyerCount, submarineCount;
-    private JLabel errorMessage;
-    private JLabel errorMessage;
-    private volatile boolean isImageVisible;
-    private static final int MAX_SHIP_SIZE = 8;
-    private static final int MAX_SHIP_COUNT = 5;
-
-    public MainMenu(JFrame theWindow){
+	private JFrame window;
+	private ImageIcon backgroundImageIcon;
+	private JLabel bkgImageContainer;
+	private JButton gridSizeBtn;
+	private JButton startGame;
+	private JButton battleshipSize, cruiserSize, destroyerSize, submarineSize;
+	private JButton battleshipCount, cruiserCount, destroyerCount, submarineCount;
+	private JLabel errorMessage;
+	private volatile boolean isImageVisible;
+	private static final int MAX_SHIP_SIZE = 8;
+	private static final int MAX_SHIP_COUNT = 5;
+	
+	public MainMenu(JFrame theWindow){
 		window = theWindow;
 		backgroundImageIcon = new ImageIcon("Title.png");
 		bkgImageContainer = new JLabel(backgroundImageIcon);
 		isImageVisible = true;
-    }
-
-    public boolean canShipsFitOnBoard(){
+	}
+	
+	public boolean canShipsFitOnBoard(){
 		int totalShipSize = (GameLogic.battleshipCount * GameLogic.battleshipSize) + 
 				(GameLogic.cruiserCount * GameLogic.cruiserSize) +
 				(GameLogic.destroyerCount * GameLogic.destroyerSize) + 
@@ -50,14 +49,14 @@ public class MainMenu {
 			return false;
 		}
 		return true;
-    }
-
-    public void loadTitleScreen() {
+	}
+	
+	public void loadTitleScreen() {
 		bkgImageContainer.setSize(window.getContentPane().getWidth(),
 				window.getContentPane().getHeight()/2);
 		bkgImageContainer.setLocation(0, 0); 
 		bkgImageContainer.setVisible(true);
-
+		
 		errorMessage = new JLabel("Error: grid is too small to fit the selected ships");
 		errorMessage.setForeground(Color.RED);
 		errorMessage.setFont(new Font("Impact", Font.PLAIN, 24));
@@ -65,7 +64,7 @@ public class MainMenu {
 		errorMessage.setLocation(window.getWidth()/2 - errorMessage.getWidth()/2,
 				window.getHeight()-errorMessage.getHeight() - 30);
 		errorMessage.setVisible(false);
-
+		
 		startGame = new JButton("Start Game");
 		startGame.setSize(200, 100);
 		startGame.setLocation(150, bkgImageContainer.getHeight() + 50);
@@ -89,7 +88,7 @@ public class MainMenu {
 				isImageVisible = false;
 			}	
 		});
-
+		
 		gridSizeBtn = new JButton("Grid Width: " + GameLogic.boardSize);
 		gridSizeBtn.setSize(200, 100); 
 		gridSizeBtn.setLocation(150, bkgImageContainer.getHeight() + startGame.getHeight() + 50);
@@ -107,7 +106,7 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
 		battleshipSize = new JButton("Length of Battleship: " + GameLogic.battleshipSize);
 		battleshipSize.setSize(200, 50); 
 		battleshipSize.setLocation(window.getContentPane().getWidth() - battleshipSize.getWidth() - 300, 
@@ -126,7 +125,8 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
+		
 		battleshipCount = new JButton("Number of Battleships: " + GameLogic.battleshipCount);
 		battleshipCount.setSize(200, 50); 
 		battleshipCount.setLocation(window.getContentPane().getWidth() - battleshipCount.getWidth() - 100, 
@@ -145,7 +145,8 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
+		
 		cruiserSize = new JButton("Length of Cruiser: " + GameLogic.cruiserSize);
 		cruiserSize.setSize(200, 50); 
 		cruiserSize.setLocation(window.getContentPane().getWidth() - cruiserSize.getWidth() - 300, 
@@ -164,7 +165,8 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
+		
 		cruiserCount = new JButton("Number of Cruisers: " + GameLogic.cruiserCount);
 		cruiserCount.setSize(200, 50); 
 		cruiserCount.setLocation(window.getContentPane().getWidth() - cruiserCount.getWidth() - 100, 
@@ -183,7 +185,8 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
+		
 		destroyerSize = new JButton("Length of Destroyer: " + GameLogic.destroyerSize);
 		destroyerSize.setSize(200, 50); 
 		destroyerSize.setLocation(window.getContentPane().getWidth() - battleshipSize.getWidth() - 300, 
@@ -202,7 +205,8 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
+		
 		destroyerCount = new JButton("Number of Destroyers: " + GameLogic.destroyerCount);
 		destroyerCount.setSize(200, 50); 
 		destroyerCount.setLocation(window.getContentPane().getWidth() - destroyerCount.getWidth() - 100, 
@@ -223,7 +227,8 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
+		
 		submarineSize = new JButton("Length of Submarine: " + GameLogic.submarineSize);
 		submarineSize.setSize(200, 50); 
 		submarineSize.setLocation(window.getContentPane().getWidth() - submarineSize.getWidth() - 300, 
@@ -245,7 +250,7 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
 		submarineCount = new JButton("Number of Submarines: " + GameLogic.submarineCount);
 		submarineCount.setSize(200, 50); 
 		submarineCount.setLocation(window.getContentPane().getWidth() - submarineCount.getWidth() - 100, 
@@ -267,7 +272,7 @@ public class MainMenu {
 				errorMessage.setVisible(!shipsFit);
 			}	
 		});
-
+		
 		startGame.setVisible(true);
 		gridSizeBtn.setVisible(true);
 		battleshipSize.setVisible(true);
@@ -298,9 +303,8 @@ public class MainMenu {
 		window.getContentPane().repaint();
 	}
 
-    public boolean isImageVisible(){
+	public boolean isImageVisible(){
 		return isImageVisible;
 	}
 	
 }
-

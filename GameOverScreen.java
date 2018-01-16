@@ -1,4 +1,3 @@
-//imports
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.MouseEvent;
@@ -11,60 +10,52 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class GameOverScreen implements MouseListener{
-
-    private JPanel window;
-    private ImageIcon backgroundImageIcon;
-    private JLabel bkgImageContainer;
-
-    public GameOverScreen(JFrame app, boolean playerOneWin){
-	window = (JPanel)app.getContentPane();
 	
-	//Use pngs
-	if (playerOneWin){
-	    backgroundImageIcon = new ImageIcon("P1Win.png");
-	}else{
-	    backgroundImageIcon = new ImageIcon("P2Win.png");
+	private JPanel window;
+	private ImageIcon backgroundImageIcon;
+	private JLabel bkgImageContainer;
+	
+	public GameOverScreen(JFrame app, boolean playerOneWin){
+		window = (JPanel)app.getContentPane();
+		if (playerOneWin){
+			backgroundImageIcon = new ImageIcon("P1Win.png");
+		}else{
+			backgroundImageIcon = new ImageIcon("P2Win.png");
+		}
+		Image bkgImage = backgroundImageIcon.getImage();
+		Image scaledBkgImage = bkgImage.getScaledInstance(window.getWidth(),
+				window.getHeight(), BufferedImage.SCALE_FAST);
+		ImageIcon scaledBkgImageIcon = new ImageIcon(scaledBkgImage);
+		bkgImageContainer = new JLabel(scaledBkgImageIcon);
+		bkgImageContainer.setSize(window.getWidth(), 
+				window.getHeight());
+		bkgImageContainer.setLocation(0, 0); 
+		bkgImageContainer.setBackground(new Color(0,0,0,0));
+		bkgImageContainer.addMouseListener(this);
 	}
-	Image bkgImage = backgroundImageIcon.getImage();
-	Image scaledBkgImage = bkgImage.getScaledInstance(window.getWidth(),
-							  window.getHeight(), BufferedImage.SCALE_FAST);
-	ImageIcon scaledBkgImageIcon = new ImageIcon(scaledBkgImage);
-
-	ImageIcon scaledBkgImageIcon = new ImageIcon(scaledBkgImage);
-	bkgImageContainer = new JLabel(scaledBkgImageIcon);
-	bkgImageContainer.setSize(window.getWidth(), 
-				  window.getHeight());
-	bkgImageContainer.setLocation(0, 0); 
-	bkgImageContainer.setBackground(new Color(0,0,0,0));
 	
-	//mouseListener
-	bkgImageContainer.addMouseListener(this);
-    }
+	public void loadEndScreen() {
+		window.add(bkgImageContainer); 
+		window.setComponentZOrder(bkgImageContainer, 0);
+		window.setVisible(true);
+		window.revalidate();
+		window.repaint();
+	}
 
-    public void loadEndScreen() {
-	window.add(bkgImageContainer); 
-	window.setComponentZOrder(bkgImageContainer, 0);
-	window.setVisible(true);
-	window.revalidate();
-	window.repaint();
-    }
-
-
-    //Overrides
-    @Override
+	@Override
 	public void mouseReleased(MouseEvent e) {
-	System.exit(0);
-    }
+		System.exit(0);
+	}
 
-    @Override
+	@Override
 	public void mouseClicked(MouseEvent e) {}
 
-    @Override
+	@Override
 	public void mouseEntered(MouseEvent e) {}
 
-    @Override
+	@Override
 	public void mouseExited(MouseEvent e) {}
 
-    @Override
+	@Override
 	public void mousePressed(MouseEvent e) {}
 }
