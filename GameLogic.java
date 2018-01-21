@@ -1,3 +1,4 @@
+//The backdoor logic of the game.  Makes the game work!
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.MouseAdapter;
