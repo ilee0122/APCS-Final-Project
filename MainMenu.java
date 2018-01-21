@@ -1,3 +1,4 @@
+//Sets up the Main Menu screen
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
