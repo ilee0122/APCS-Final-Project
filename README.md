@@ -32,6 +32,9 @@ java LaunchGame
 8. Play until all of one player's ships are destroyed.
 9. Brag to the loser! >:)
 
+## Settings
+![alt text](https://github.com/ilee0122/APCS-Final-Project/blob/master/BattleBoatMainMenu.jpeg)
+
 ## Development Log
 ### Before the Demo
 - Created Main Menu screen with buttons.
