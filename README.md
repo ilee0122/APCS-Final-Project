@@ -52,5 +52,7 @@ java LaunchGame
 - When ships are destroyed, they turn red instead of disappearing.
 
 ### Removed Features
-
-
+- Powerups: Decided to stay true to the original BattleShip.
+- Remember Layouts: Having the same layout would make the game boring.
+- Scrambling ships after each turn: Makes the game too confusing.
+ 
