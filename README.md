@@ -38,6 +38,7 @@ java LaunchGame
 - Made the main menu buttons functional.
 - Created screen with two grids: one to attack and one displaying your own ships.
 - Players can drag the ships onto the grids to place them.
+- Ships can be rotated when placed.
 - Ships can be randomly placed onto the grid.
 - If a ship piece is hit, then it displays the correct image.
 - A damaged ship will also show on the small grid.
@@ -56,6 +57,13 @@ java LaunchGame
 - Powerups: Decided to stay true to the original BattleShip.
 - Remember Layouts: Having the same layout would make the game boring.
 - Scrambling ships after each turn: Makes the game too confusing.
+
+### Fixed Bugs
+- An incorrect box would be selected when the player clicks the grid.
+- The ships did not rotate when the player right clicks.
+- Ships would overlap when the randomize button is pressed.
+- Ships can be overlapped when the players drag a ship on top of another.
+- Players can fire at a box already previously fired at. 
 
 ## Acknowledgments 
 Thank you Mr. K and the Internet for making this all possible!
