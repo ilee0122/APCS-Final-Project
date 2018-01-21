@@ -11,13 +11,13 @@
 6. Hand the computer to the other player so they can make their move.
 7. No peeking! Don't look at the location of your opponent's ships or else...
 8. Play until all of one player's ships are destroyed.
-9. Brag to loser! :)
+9. Brag to the loser! >:)
 
 ## Development Log
 ### Before the Demo
 -
 
-###After the Demo
--Fixed button sizes on the main menu screen.
--When ships are destroyed, they turn red instead of disappearing.
+### After the Demo
+- Fixed button sizes on the main menu screen.
+- When ships are destroyed, they turn red instead of disappearing.
 
