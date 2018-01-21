@@ -34,6 +34,10 @@ java LaunchGame
 
 ## Settings
 ![Battle Boat Main Menu](https://github.com/ilee0122/APCS-Final-Project/blob/master/BattleBoatMainMenu.jpeg)
+- Grid Width: Change the size of the grid.
+- Length of ______: Change the size of that type of ship.
+- Number of ______: Change the amount of that type of ship.
+
 
 ## Development Log
 ### Before the Demo
