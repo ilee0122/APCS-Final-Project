@@ -15,30 +15,24 @@ public class Grid extends JPanel implements MouseListener {
 	private static final long serialVersionUID = 1L;
 	private BufferedImage gridImage;
 	private Object[][] array;
-	public static final int X_ORIGIN = 54; // X coordinate of the top left
-	public static final int Y_ORIGIN = 56; // Y coordinate of the top left
+	public static final int X_ORIGIN = 54; // x coordinate of the top left
+	public static final int Y_ORIGIN = 56; // y coordinate of the top left
 	public static final int TILE_SIZE = 47; // Size of the tile spaces
 	public static final int BORDER_SIZE = 5; // size of the border between spaces
 	private volatile boolean isTurn;
 	private boolean state;
 
-	/*
-	 * Default constructor. Uses an empty array
-	 */
+	// Default constructor. Uses an empty array
 	public Grid() {
 		this(new Object[10][10], "gridLabels.png");
 	}
 
-	/*
-	 * Constructor that takes an array
-	 */
+    // Constructor that takes an array
 	public Grid(Object[][] arr) {
 		this(arr, "gridLabels.png");
 	}
 
-	/*
-	 * constructor that takes an array and a file path.
-	 */
+    //constructor that takes an array and a file path.
 	public Grid(Object[][] arr, String path) {
 		array = arr;
 		isTurn = true;
@@ -156,30 +150,22 @@ public class Grid extends JPanel implements MouseListener {
 	public void mousePressed(MouseEvent e) {
 	}
 
-	/*
-	 * Returns isTurn
-	 */
+	// Returns isTurn
 	public boolean isTurn() {
 		return isTurn;
 	}
 
-	/*
-	 * Sets the turn to the parameter
-	 */
+    //Sets the turn to the parameter
 	public void setTurn(boolean t) {
 		isTurn = t;
 	}
 
-	/*
-	 * Returns the grid array
-	 */
+    //Returns the grid array
 	public Object[][] getArray() {
 		return array;
 	}
 
-	/*
-	 * Sets the grid array to the parameter
-	 */
+    //Sets the grid array to the parameter
 	public void setArray(Object[][] arr) {
 		array = arr;
 	}
