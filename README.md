@@ -32,7 +32,7 @@ java LaunchGame
 8. Play until all of one player's ships are destroyed.
 9. Brag to the loser! >:)
 
-## Settings
+## Customization
 ![Battle Boat Main Menu](https://github.com/ilee0122/APCS-Final-Project/blob/master/BattleBoatMainMenu.jpeg)
 - Grid Width: Change the size of the grid.
 - Length of ______: Change the size of that type of ship.
