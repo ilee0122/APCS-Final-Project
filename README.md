@@ -33,9 +33,24 @@ java LaunchGame
 
 ## Development Log
 ### Before the Demo
--
+- Created Main Menu screen with buttons.
+- Made the main menu buttons functional.
+- Created screen with two grids: one to attack and one displaying your own ships.
+- Players can drag the ships onto the grids to place them.
+- Ships can be randomly placed onto the grid.
+- If a ship piece is hit, then it displays the correct image.
+- A damaged ship will also show on the small grid.
+- If an enitre ship is destroyed, then the ship disappears.
+- Created a screen in between turns to make it harder to cheat.
+- Put directions on the in between turns screen.
+- When someone wins, the correct screen displays.
+- Created grid customization button on main menu screen. 
+- Created error messages so all the ships can fit on the grid when customizing. 
 
 ### After the Demo
 - Fixed button sizes on the main menu screen.
 - When ships are destroyed, they turn red instead of disappearing.
+
+### Removed Features
+
 
