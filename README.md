@@ -1,4 +1,5 @@
 # BattleBoats
+Team CHANPION KYUODERS
 
 ## How to Run
 ```
@@ -55,4 +56,7 @@ java LaunchGame
 - Powerups: Decided to stay true to the original BattleShip.
 - Remember Layouts: Having the same layout would make the game boring.
 - Scrambling ships after each turn: Makes the game too confusing.
+
+## Acknowledgments 
+Thank you Mr. K and the Internet for making this all possible!
  
