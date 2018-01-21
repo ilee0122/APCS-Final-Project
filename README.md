@@ -1,5 +1,5 @@
 # BattleBoats
-Team CHANPION KYUODERS
+**Team CHANPION KYUODERS**
 
 ## How to Run
 ```
