@@ -128,8 +128,8 @@ public class MainMenu {
 		
 		
 		battleshipCount = new JButton("Number of Battleships: " + GameLogic.battleshipCount);
-		battleshipCount.setSize(200, 50); 
-		battleshipCount.setLocation(window.getContentPane().getWidth() - battleshipCount.getWidth() - 100, 
+		battleshipCount.setSize(225, 50); 
+		battleshipCount.setLocation(window.getContentPane().getWidth() - battleshipCount.getWidth() - 75, 
 				bkgImageContainer.getHeight() + 50);
 		battleshipCount.addActionListener(new ActionListener(){
 			@Override
@@ -168,8 +168,8 @@ public class MainMenu {
 		
 		
 		cruiserCount = new JButton("Number of Cruisers: " + GameLogic.cruiserCount);
-		cruiserCount.setSize(200, 50); 
-		cruiserCount.setLocation(window.getContentPane().getWidth() - cruiserCount.getWidth() - 100, 
+		cruiserCount.setSize(225, 50); 
+		cruiserCount.setLocation(window.getContentPane().getWidth() - cruiserCount.getWidth() - 75, 
 				bkgImageContainer.getHeight() + battleshipCount.getHeight() + 50);
 		cruiserCount.addActionListener(new ActionListener(){
 			@Override
@@ -208,8 +208,8 @@ public class MainMenu {
 		
 		
 		destroyerCount = new JButton("Number of Destroyers: " + GameLogic.destroyerCount);
-		destroyerCount.setSize(200, 50); 
-		destroyerCount.setLocation(window.getContentPane().getWidth() - destroyerCount.getWidth() - 100, 
+		destroyerCount.setSize(225, 50); 
+		destroyerCount.setLocation(window.getContentPane().getWidth() - destroyerCount.getWidth() - 75, 
 				bkgImageContainer.getHeight() +
 				battleshipCount.getHeight() + 
 				cruiserCount.getHeight() + 50);
@@ -252,8 +252,8 @@ public class MainMenu {
 		});
 		
 		submarineCount = new JButton("Number of Submarines: " + GameLogic.submarineCount);
-		submarineCount.setSize(200, 50); 
-		submarineCount.setLocation(window.getContentPane().getWidth() - submarineCount.getWidth() - 100, 
+		submarineCount.setSize(225, 50); 
+		submarineCount.setLocation(window.getContentPane().getWidth() - submarineCount.getWidth() - 75, 
 				bkgImageContainer.getHeight() +
 				battleshipCount.getHeight() + 
 				cruiserCount.getHeight() + 
