@@ -1,6 +1,24 @@
 # BattleBoats
 
 ## How to Run
+```
+git clone https://github.com/ilee0122/APCS-Final-Project.git
+```
+```
+cd APCS-Final-Project
+```
+```
+javac MainMenu.java
+```
+```
+javac GameLogic.java
+```
+```
+javac LaunchGame.java
+```
+```
+java LaunchGame
+```
 
 ## How to Play
 1. Grab a friend or find one if you do not currently have one :(
