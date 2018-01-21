@@ -33,7 +33,7 @@ java LaunchGame
 9. Brag to the loser! >:)
 
 ## Settings
-![alt text](https://github.com/ilee0122/APCS-Final-Project/blob/master/BattleBoatMainMenu.jpeg)
+![Battle Boat Main Menu](https://github.com/ilee0122/APCS-Final-Project/blob/master/BattleBoatMainMenu.jpeg)
 
 ## Development Log
 ### Before the Demo
