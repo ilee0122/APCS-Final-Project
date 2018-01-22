@@ -26,7 +26,7 @@ java LaunchGame
 2. Customize the game by setting the number of each ship and their lengths and the size of the board.  Or just use the default settings.
 3. Press Start Game!
 4. Place your ships where you want by dragging them from the side onto the grid.  Right click the ship to rotate it.  If you are too lazy, have the computer place the ships for you by pressing Randomize Grid.
-5. Click the place on the Grid where you think your opponent's ships are.
+5. Click the box on the Grid where you think your opponent's ships are.
 6. Hand the computer to the other player so they can make their move.
 7. No peeking! Don't look at the location of your opponent's ships or else...
 8. Play until all of one player's ships are destroyed.
