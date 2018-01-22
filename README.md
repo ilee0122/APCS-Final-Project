@@ -22,8 +22,8 @@ java LaunchGame
 ```
 
 ## How to Play
-1. Grab a friend or find one if you do not currently have one :(
-2. Customize the game by setting the number of each ship and their lengths and the size of the board.
+1. Grab a friend or find one if you do not currently have one. :(
+2. Customize the game by setting the number of each ship and their lengths and the size of the board.  Or just use the default settings.
 3. Press Start Game!
 4. Place your ships where you want by dragging them from the side onto the grid.  Right click the ship to rotate it.  If you are too lazy, have the computer place the ships for you by pressing Randomize Grid.
 5. Click the place on the Grid where you think your opponent's ships are.
