@@ -77,5 +77,5 @@ Thank you Mr. K and the Internet for making this all possible!
 
 ## Team CHANPION KYUODERS
 - Nicholas Chan, pd 10
-- Il Lyu Lee, pd 10
+- Il Lyu Lee, pd 10 
  
