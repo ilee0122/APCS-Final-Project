@@ -49,7 +49,7 @@ java LaunchGame
 - Ships can be randomly placed onto the grid.
 - If a ship piece is hit, then it displays the correct image.
 - A damaged ship will also show on the small grid.
-- If an enitre ship is destroyed, then the ship disappears.
+- If an entire ship is destroyed, then the ship disappears.
 - Created a screen in between turns to make it harder to cheat.
 - Put directions on the in between turns screen.
 - When someone wins, the correct screen displays.
